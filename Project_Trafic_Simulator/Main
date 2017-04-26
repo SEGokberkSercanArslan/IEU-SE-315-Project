@@ -1,0 +1,47 @@
+from tkinter import  *
+import  Functions
+import  Classes
+
+
+def Print_me():
+    print("Hello world")
+root = Tk()                     #Root Object
+root.title("Trafic Simulator")  #Screen Title
+root.geometry("1024x768")       #Screen frame size
+root.config(bg="grey")          #Bg of programme is grey
+
+#Create a menu bar
+menubar = Menu(root)
+#File operation menu
+file_menu = Menu(menubar,tearoff=0)
+file_menu.add_command(label = "Open",command = Print_me)
+file_menu.add_command(label = "Save Project",command =Print_me)
+file_menu.add_command(label = "quit",command = root.quit)
+file_menu.add_separator()
+menubar.add_cascade(label = "File",menu = file_menu)
+#Simulation menu
+simultate_menu = Menu(menubar,tearoff=0)
+simultate_menu.add_command(label = "Simultate",command = Print_me)
+menubar.add_cascade(label = "Simutlate",menu = simultate_menu)
+#Help menu and menu's members
+help_menu = Menu(menubar,tearoff=0)
+help_menu.add_command(label = "instructions",command = Functions.instructions)
+menubar.add_cascade(label = "Help",menu = help_menu)
+#End of menu functions
+
+
+main_label=Label(root,text= "Please input number of roads do you need in the box",bg="grey",fg="white").pack()
+
+#Label creation for message box
+first_label = Label(root,text="Number of roads :",fg="black",bg="grey").place(x=16,y=32,width=128,height=32)
+#get input
+number_of_road_button    = Button(root,bg="grey",fg="black",text ="save").place(x=180,y=40,width=128,height=16) #command here
+number_of_road_entry_box = Entry(root,bg="grey").place(x=144,y=40,width=32,height=16) #write an get command function inside?
+
+
+
+
+root.config(menu= menubar)
+root.mainloop()
+
+
