@@ -34,9 +34,12 @@ main_label=Label(root,text= "Please input number of roads do you need in the box
 
 #Label creation for message box
 first_label = Label(root,text="Number of roads :",fg="black",bg="grey").place(x=16,y=32,width=128,height=32)
+
+
 #get input
-number_of_road_button    = Button(root,bg="grey",fg="black",text ="save").place(x=180,y=40,width=128,height=16) #command here
 number_of_road_entry_box = Entry(root,bg="grey").place(x=144,y=40,width=32,height=16) #write an get command function inside?
+number_of_road_button    = Button(root,bg="grey",fg="black",text ="save",command =number_of_road_entry_box).place(x=180,y=40,width=128,height=16)#command here
+
 
 
 
