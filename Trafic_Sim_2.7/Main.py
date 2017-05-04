@@ -5,12 +5,15 @@ import Classes
 def deneme():
     print "deneme"
 
+
+
+#main root screen
 root = Tk()
 root.geometry("1024x768")
 root.title("Trafic Simulator")
 root.config(bg="grey")
 
-
+#drawing screen on the root
 canvas = Canvas(root,width=1024,height=400)
 canvas.config(bg="white")
 #canvas.bind("<Button-1>",Functions.onclick_handler)
@@ -45,7 +48,7 @@ menubar.add_cascade(label="Tools",menu=tool_menu)
 #End of menu functions
 
 
-
+print "Merhaba dünya"
 
 
 '''
