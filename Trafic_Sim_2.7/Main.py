@@ -6,21 +6,29 @@ def deneme():
     print "deneme"
 
 
-
-#main root screen
-root = Tk()
-root.geometry("1024x768")
+root=Tk()
+root.geometry("1600x1000")
 root.title("Trafic Simulator")
 root.config(bg="grey")
 
-#drawing screen on the root
-canvas = Canvas(root,width=1024,height=400)
-canvas.config(bg="white")
-#canvas.bind("<Button-1>",Functions.onclick_handler)
-#canvas.bind("<ButtonRelease-1>",Functions.onrelease_handler)
-canvas.pack()
-canvas.place(y=200)
+#create a frame working on canvas
+frame=Frame(root,width=800,height=400)
+frame.place(y=250)
 
+
+canvas=Canvas(frame,bg='#FFFFFF',width=800,height=800,scrollregion=(0,0,2880,1440))
+#Horizental Scroll Bar
+hbar=Scrollbar(frame,orient=HORIZONTAL)
+hbar.pack(side=BOTTOM,fill=X)
+hbar.config(command=canvas.xview)
+#Vertical Scroll Bar
+vbar=Scrollbar(frame,orient=VERTICAL)
+vbar.pack(side=RIGHT,fill=Y)
+vbar.config(command=canvas.yview)
+#Canvas Creation
+canvas.config(width=1580,height=500,bg="white")
+canvas.config(xscrollcommand=hbar.set, yscrollcommand=vbar.set)
+canvas.pack(side=LEFT,expand=True,fill=BOTH)
 
 
 #Create Menu
@@ -48,16 +56,15 @@ menubar.add_cascade(label="Tools",menu=tool_menu)
 #End of menu functions
 
 
-print "Merhaba dünya"
+
+#Right Click Pop up tool menu
+popup = Menu(root,tearoff=0)
+popup.add_command(label="Line Tool")
+popup.add_command(label="Arc  Tool")
+popup.add_command(label="Road Attr")
+popup.add_separator()
 
 
-'''
-button = Button(root,text="Line Road",command=Functions.create_line(root_canvas=canvas))
-button.place(x=70,y=0)
-'''
-
-#button2 = Button(root,text="Curve road",command=Functions.create_curve(root_canvas=canvas))
-#button2.place(x=0,y=0)
 
 
 root.config(menu=menubar)
