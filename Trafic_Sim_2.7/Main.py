@@ -51,7 +51,7 @@ menubar.add_cascade(label = "Help",menu = help_menu)
 #Tool menu
 tool_menu= Menu(menubar,tearoff=0)
 tool_menu.add_command(label="Line",command=Functions.create_line(canvas))
-tool_menu.add_command(label="Arc",command=Functions.create_arc(canvas))
+#tool_menu.add_command(label="Arc",command=Functions.create_arc(canvas))
 menubar.add_cascade(label="Tools",menu=tool_menu)
 #End of menu functions
 
@@ -59,11 +59,21 @@ menubar.add_cascade(label="Tools",menu=tool_menu)
 
 #Right Click Pop up tool menu
 popup = Menu(root,tearoff=0)
-popup.add_command(label="Line Tool")
-popup.add_command(label="Arc  Tool")
+popup.add_command(label="Line Tool",command=Functions.create_line)
+popup.add_command(label="Arc  Tool",command=Functions.create_arc)
+popup.add_separator()
 popup.add_command(label="Road Attr")
 popup.add_separator()
 
+def do_popup(event):
+    # display the popup menu
+    try:
+        popup.tk_popup(event.x_root, event.y_root, 0)
+    finally:
+        # make sure to release the grab (Tk 8.0a1 only)
+        popup.grab_release()
+
+root.bind("<Button-3>",do_popup)
 
 
 

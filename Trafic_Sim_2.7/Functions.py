@@ -11,19 +11,13 @@ def instructions():
     label.pack()
     root_inst.mainloop()
 
-def do_popup(event):
-    # display the popup menu
-    try:
-        popup.tk_popup(event.x_root, event.y_root, 0)
-    finally:
-        # make sure to release the grab (Tk 8.0a1 only)
-        popup.grab_release()
 
 def key_locactions(event):
     repr(event.char)
 
 def call_back_test(event):
     print "Placed :",event.x,event.y
+
 
 def onclick_handler(event):
     global start
@@ -46,6 +40,7 @@ def onrelease_handler_arc(event):
 def create_line(root_canvas):
     root_canvas.bind("<Button-1>",onclick_handler)
     root_canvas.bind("<ButtonRelease-1>",onrelease_handler_line)
+
 
 def create_arc(root_canvas):
     root_canvas.bind("<Button-1>",onclick_handler)
