@@ -72,9 +72,28 @@ def do_popup(event):
     finally:
         # make sure to release the grab (Tk 8.0a1 only)
         popup.grab_release()
-
 root.bind("<Button-3>",do_popup)
 
+
+button1= Button(root,text="Red Light Timer",bg="grey",fg="white")
+button1.grid(row=0,column=0)
+entry1 = Entry(root,bg="white",fg="black")
+entry1.grid(row=0,column=1)
+
+button2= Button(root,text="Green Light Timer",bg="grey",fg="white")
+button2.grid(row=1,column=0)
+entry2 = Entry(root,bg="white",fg="black")
+entry2.grid(row=1,column=1)
+
+button3= Button(root,text="Max Capacity",bg="grey",fg="white")
+button3.grid(row=2,column=0)
+entry3 = Entry(root,bg="white",fg="black")
+entry3.grid(row=2,column=1)
+
+button4= Button(root,text="Max Pass Per Min",bg="grey",fg="white")
+button4.grid(row=3,column=0)
+entry4 = Entry(root,bg="white",fg="black")
+entry4.grid(row=3,column=1)
 
 
 root.config(menu=menubar)

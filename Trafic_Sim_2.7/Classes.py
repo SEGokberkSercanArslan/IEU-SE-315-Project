@@ -1,33 +1,34 @@
 from Tkinter import *
 
 class Road_object():
-    def __init__(self,max_cap,gl_timer,rl_timer,max_veh_pass):
-        self.red_light =rl_timer
-        self.green_light =gl_timer
-        self.road_capacity= max_cap
-        self.maximum_vehicle_pass=max_veh_pass
-    def printattributes(self):
-        print self.red_light
-        print self.green_light
-        print self.road_capacity
-    def initialize_event_pos(self,fepx,fepy,sepx,sepy):
-        #fepx=First  event x pixel location
-        #fepy=First  event y pixel location
-        #sepx=Second event x pixel location
-        #sepy=Second event y pixel location
-        self.first_event_posx=fepx
-        self.first_event_posy=fepy
-        self.second_event_posx=sepx
-        self.second_event_posy=sepy
-    def road_attribute_screen(self):
-        road_root = Tk()
-        road_root.geometry("600x600"),
-        road_root.title("Attribute initialize screen")
-
-        #Entry boxes and save buttons will come here !!
-
-
-        road_root.mainloop()
-
+    def __init__(self,fposx,fposy,sposx,sposy):
+        self.first_posx=fposx
+        self.first_posy=fposy
+        self.second_posx=sposx
+        self.second_posy=sposy
+    def initialize_redlight_timer(self,red_light):
+        self.red_light_timer=red_light
+    def initialize_greenlight_timer(self,green_light):
+        self.green_light_timer=green_light
+    def initialize_max_capacity(self,max_road_cap):
+        self.max_road_capacity=max_road_cap
+    def initialize_max_pass(self,max_pass):
+        self.max_veheicle_pass=max_pass
+    def get_fposx(self):
+        return self.first_posx
+    def get_fposy(self):
+        return self.first_posy
+    def get_sposx(self):
+        return self.second_posx
+    def get_sposy(self):
+        return self.second_posy
+    def get_red_light_timer(self):
+        return self.red_light_timer
+    def get_green_light_timer(self):
+        return self.green_light_timer
+    def get_max_road_cap(self):
+        return self.max_road_capacity
+    def get_max_vehicle_pass(self):
+        return self.max_veheicle_pass
 
 

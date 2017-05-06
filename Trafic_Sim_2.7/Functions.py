@@ -1,6 +1,6 @@
 
 from Tkinter import *
-
+from Classes import *
 start = None
 
 def instructions():
@@ -29,6 +29,12 @@ def onrelease_handler_line(event):
         x = start[0]
         y = start[1]
         event.widget.create_line(x, y, event.x, event.y)
+        #Function Test
+        m =Road_object(start[0],start[1],event.x,event.y)
+        print "fPOSx:{}".format(m.get_fposx())
+        print "fPOSy:{}".format(m.get_fposy())
+        print "sPOSx:{}".format(m.get_sposx())
+        print "sPOSy:{}".format(m.get_sposy())
         start = None
 
 def onrelease_handler_arc(event):
@@ -40,6 +46,7 @@ def onrelease_handler_arc(event):
 def create_line(root_canvas):
     root_canvas.bind("<Button-1>",onclick_handler)
     root_canvas.bind("<ButtonRelease-1>",onrelease_handler_line)
+
 
 
 def create_arc(root_canvas):
