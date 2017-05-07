@@ -76,24 +76,43 @@ root.bind("<Button-3>",do_popup)
 
 
 button1= Button(root,text="Red Light Timer",bg="grey",fg="white")
-button1.grid(row=0,column=0)
+button1.grid(row=0,column=0,ipadx=80)
 entry1 = Entry(root,bg="white",fg="black")
 entry1.grid(row=0,column=1)
 
 button2= Button(root,text="Green Light Timer",bg="grey",fg="white")
-button2.grid(row=1,column=0)
+button2.grid(row=1,column=0,ipadx=80)
 entry2 = Entry(root,bg="white",fg="black")
 entry2.grid(row=1,column=1)
 
 button3= Button(root,text="Max Capacity",bg="grey",fg="white")
-button3.grid(row=2,column=0)
+button3.grid(row=2,column=0,ipadx=80)
 entry3 = Entry(root,bg="white",fg="black")
 entry3.grid(row=2,column=1)
 
 button4= Button(root,text="Max Pass Per Min",bg="grey",fg="white")
-button4.grid(row=3,column=0)
+button4.grid(row=3,column=0,ipadx=80)
 entry4 = Entry(root,bg="white",fg="black")
-entry4.grid(row=3,column=1)
+entry4.grid(row=3,column=1,padx=40)
+
+
+label_road_number = Label(root,bg="grey",fg="black",text="Road Number :")
+label_road_number.grid(row=0,column=2)
+
+label_road_rl_info = Label(root,bg="grey",fg="black",text="Road Red Light :")
+label_road_rl_info.grid(row=1,column=2)
+
+label_road_gl_info = Label(root,bg="grey",fg="black",text="Road Green Light :")
+label_road_gl_info.grid(row=2,column=2)
+
+label_max_road_cap = Label(root,bg="grey",fg="black",text="Max Vehicle Capacity :")
+label_max_road_cap.grid(row=3,column=2)
+
+label_max_veh_pass = Label(root,bg="grey",fg="Black",text="Max Vehicle Pass :")
+label_max_veh_pass.grid(row=4,column=2)
+
+
+
 
 
 root.config(menu=menubar)
