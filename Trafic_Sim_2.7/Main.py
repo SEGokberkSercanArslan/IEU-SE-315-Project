@@ -1,6 +1,6 @@
 from Tkinter import *
 import Functions
-import Classes
+from Classes import *
 
 def deneme():
     print "deneme"
@@ -59,8 +59,10 @@ menubar.add_cascade(label="Tools",menu=tool_menu)
 
 #Right Click Pop up tool menu
 popup = Menu(root,tearoff=0)
-popup.add_command(label="Line Tool",command=Functions.create_line)
-popup.add_command(label="Arc  Tool",command=Functions.create_arc)
+popup.add_command(label="Line Tool",command=Functions.create_line(frame))
+root.update_idletasks()
+popup.add_command(label="Arc  Tool",command=Functions.create_arc(frame))
+root.update_idletasks()
 popup.add_separator()
 popup.add_command(label="Road Attr")
 popup.add_separator()
@@ -75,25 +77,32 @@ def do_popup(event):
 root.bind("<Button-3>",do_popup)
 
 
+
+select_road = Label(bg="grey",fg="Black",text="Select an road")
+select_road.grid(row=0,column=0)
+select_road_spinbox = Spinbox(root,from_=0,to=Functions.road_id+1)
+select_road_spinbox.grid(row=0,column=1)
+
+#button1_text = 0 # Also it should be working on (sercan)
 button1= Button(root,text="Red Light Timer",bg="grey",fg="white")
-button1.grid(row=0,column=0,ipadx=80)
-entry1 = Entry(root,bg="white",fg="black")
-entry1.grid(row=0,column=1)
+button1.grid(row=1,column=0,ipadx=80)
+entry1 = Entry(root,bg="white",fg="black") # textvariable=button1_text I should work on it (Sercan)
+entry1.grid(row=1,column=1)
 
 button2= Button(root,text="Green Light Timer",bg="grey",fg="white")
-button2.grid(row=1,column=0,ipadx=80)
+button2.grid(row=2,column=0,ipadx=80)
 entry2 = Entry(root,bg="white",fg="black")
-entry2.grid(row=1,column=1)
+entry2.grid(row=2,column=1)
 
 button3= Button(root,text="Max Capacity",bg="grey",fg="white")
-button3.grid(row=2,column=0,ipadx=80)
+button3.grid(row=3,column=0,ipadx=80)
 entry3 = Entry(root,bg="white",fg="black")
-entry3.grid(row=2,column=1)
+entry3.grid(row=3,column=1)
 
 button4= Button(root,text="Max Pass Per Min",bg="grey",fg="white")
-button4.grid(row=3,column=0,ipadx=80)
+button4.grid(row=4,column=0,ipadx=80)
 entry4 = Entry(root,bg="white",fg="black")
-entry4.grid(row=3,column=1,padx=40)
+entry4.grid(row=4,column=1,padx=40)
 
 
 label_road_number = Label(root,bg="grey",fg="black",text="Road Number :")

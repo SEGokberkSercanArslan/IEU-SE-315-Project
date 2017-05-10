@@ -1,11 +1,15 @@
 from Tkinter import *
+from itertools import count
 
 class Road_object():
+    _ids=count(0)
+
     def __init__(self,fposx,fposy,sposx,sposy):
         self.first_posx=fposx
         self.first_posy=fposy
         self.second_posx=sposx
         self.second_posy=sposy
+        self.id=self._ids.next()
     def initialize_redlight_timer(self,red_light):
         self.red_light_timer=red_light
     def initialize_greenlight_timer(self,green_light):
@@ -30,5 +34,7 @@ class Road_object():
         return self.max_road_capacity
     def get_max_vehicle_pass(self):
         return self.max_veheicle_pass
+    def get_current_number_of_roads(self):
+        return self.id
 
 

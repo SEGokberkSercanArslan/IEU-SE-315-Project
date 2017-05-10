@@ -2,6 +2,9 @@
 from Tkinter import *
 from Classes import *
 start = None
+road_id = 0
+road = {}
+
 
 def instructions():
     root_inst = Tk()
@@ -24,25 +27,25 @@ def onclick_handler(event):
     start = (event.x, event.y)
 
 def onrelease_handler_line(event):
-    global start
+    global start , road_id
     if start is not None:
         x = start[0]
         y = start[1]
         event.widget.create_line(x, y, event.x, event.y)
-        #Function Test
-        m =Road_object(start[0],start[1],event.x,event.y)
-        print "fPOSx:{}".format(m.get_fposx())
-        print "fPOSy:{}".format(m.get_fposy())
-        print "sPOSx:{}".format(m.get_sposx())
-        print "sPOSy:{}".format(m.get_sposy())
+        road[road_id] = Road_object(start[0],start[1],event.x,event.y)   #Create an object called road
+        road_id+=1
+        print repr(road) #adress test
         start = None
 
 def onrelease_handler_arc(event):
-    global  start
+    global  start , road_id
     if start is not None:
         x = start[0]
         y = start[1]
         event.widget.create_arc(x, y, event.x, event.y)
+        road[road_id] = Road_object(start[0], start[1], event.x, event.y)  # Create an object called road dynmicly
+        road_id+=1  #increase road id pointer
+
 def create_line(root_canvas):
     root_canvas.bind("<Button-1>",onclick_handler)
     root_canvas.bind("<ButtonRelease-1>",onrelease_handler_line)
@@ -52,3 +55,9 @@ def create_line(root_canvas):
 def create_arc(root_canvas):
     root_canvas.bind("<Button-1>",onclick_handler)
     root_canvas.bind("<ButtonRelease-1>",onrelease_handler_arc)
+
+
+
+def simultate_roads():
+    global road
+    pass    #fill after development
