@@ -15,7 +15,7 @@ root.config(bg="grey")
 frame=Frame(root,width=800,height=400)
 frame.place(y=250)
 
-
+# Do not touch here if you don't know ,what do you do !
 canvas=Canvas(frame,bg='#FFFFFF',width=800,height=800,scrollregion=(0,0,2880,1440))
 #Horizental Scroll Bar
 hbar=Scrollbar(frame,orient=HORIZONTAL)
@@ -35,10 +35,10 @@ canvas.pack(side=LEFT,expand=True,fill=BOTH)
 menubar = Menu(root)
 #File operation menu
 file_menu = Menu(menubar,tearoff=0)
-file_menu.add_command(label = "Open",command = deneme)
+file_menu.add_command(label = "Open",command = deneme)          #Menu label print "open" And command starts deneme Function
 file_menu.add_command(label = "Save Project",command =deneme)
-file_menu.add_command(label = "Quit",command = root.quit)
-file_menu.add_separator()
+file_menu.add_command(label = "Quit",command = root.quit)       #When you click the menu button then programme close
+file_menu.add_separator()                                       #Add Separate line
 menubar.add_cascade(label = "File",menu = file_menu)
 #Simulation menu
 simultate_menu = Menu(menubar,tearoff=0)
@@ -59,7 +59,7 @@ menubar.add_cascade(label="Tools",menu=tool_menu)
 
 #Right Click Pop up tool menu
 popup = Menu(root,tearoff=0)
-popup.add_command(label="Line Tool",command=Functions.create_line(frame))
+popup.add_command(label="Line Tool",command=Functions.create_line(frame))   #command = Create_line. Creates an line in theory when you click the button
 root.update_idletasks()
 popup.add_command(label="Arc  Tool",command=Functions.create_arc(frame))
 root.update_idletasks()
@@ -105,8 +105,8 @@ entry4 = Entry(root,bg="white",fg="black")
 entry4.grid(row=4,column=1,padx=40)
 
 
-label_road_number = Label(root,bg="grey",fg="black",text="Road Number :")
-label_road_number.grid(row=0,column=2)
+label_road_number = Label(root,bg="grey",fg="black",text="Road Number :")       #Print label function  fg means "onyuz" and bg means "Arka yuz"
+label_road_number.grid(row=0,column=2)                                          #Place the object row=0 and column=2 location
 
 label_road_rl_info = Label(root,bg="grey",fg="black",text="Road Red Light :")
 label_road_rl_info.grid(row=1,column=2)
@@ -125,4 +125,4 @@ label_max_veh_pass.grid(row=4,column=2)
 
 
 root.config(menu=menubar)
-root.mainloop()
+root.mainloop()         #mainloop of our programme

@@ -4,12 +4,14 @@ from itertools import count
 class Road_object():
     _ids=count(0)
 
-    def __init__(self,fposx,fposy,sposx,sposy):
-        self.first_posx=fposx
-        self.first_posy=fposy
-        self.second_posx=sposx
-        self.second_posy=sposy
+    def __init__(self,fposx,fposy,sposx,sposy):#Parametirize constructor
+        self.first_posx=fposx   #initialize first position of x
+        self.first_posy=fposy   #initialize first position of y
+        self.second_posx=sposx  #initialize second position of x
+        self.second_posy=sposy  #initialize second position of y
         self.id=self._ids.next()
+
+    #other initialize functions
     def initialize_redlight_timer(self,red_light):
         self.red_light_timer=red_light
     def initialize_greenlight_timer(self,green_light):
@@ -18,6 +20,8 @@ class Road_object():
         self.max_road_capacity=max_road_cap
     def initialize_max_pass(self,max_pass):
         self.max_veheicle_pass=max_pass
+
+   #Parameter's get methods
     def get_fposx(self):
         return self.first_posx
     def get_fposy(self):

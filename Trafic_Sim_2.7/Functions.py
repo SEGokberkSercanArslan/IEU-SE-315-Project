@@ -15,14 +15,14 @@ def instructions():
     root_inst.mainloop()
 
 
-def key_locactions(event):
+def key_locactions(event):      #Test function
     repr(event.char)
 
 def call_back_test(event):
     print "Placed :",event.x,event.y
 
 
-def onclick_handler(event):
+def onclick_handler(event):     #The function captures x and y pixel location on canvas
     global start
     start = (event.x, event.y)
 
@@ -34,7 +34,7 @@ def onrelease_handler_line(event):
         event.widget.create_line(x, y, event.x, event.y)
         road[road_id] = Road_object(start[0],start[1],event.x,event.y)   #Create an object called road
         road_id+=1
-        print repr(road) #adress test
+        print repr(road) #adress test of class object road
         start = None
 
 def onrelease_handler_arc(event):
@@ -47,7 +47,7 @@ def onrelease_handler_arc(event):
         road_id+=1  #increase road id pointer
 
 def create_line(root_canvas):
-    root_canvas.bind("<Button-1>",onclick_handler)
+    root_canvas.bind("<Button-1>",onclick_handler)              #button 1 means left click
     root_canvas.bind("<ButtonRelease-1>",onrelease_handler_line)
 
 
